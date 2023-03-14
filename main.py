@@ -28,10 +28,8 @@ def find_winner_and_looser(team_1, team_2, phase):
 def get_team_by_group_and_place(group_and_place):
     team_group = group_and_place[0]
     team_position = group_and_place[1]
-    if (team_position == 1):
-        team = winner[team_group]
-    else:
-        team = second_places[team_group]
+
+    team = winner[team_group] if team_position == 1 else second_places[team_group]
 
     print(f'{group_and_place} is {team}')
     return team
@@ -63,7 +61,7 @@ def schedule_next_phase_from_results(results):
         results_keys = list(results.keys())
         result_index = results_keys.index(result_key)
         if result_index % 2 == 0:
-            team_2 = results_keys[result_index+1]
+            team_2 = results_keys[result_index + 1 ] 
         else:
             continue
 
